@@ -1,4 +1,5 @@
 import controlInstructions.*
+import jampOperators.*
 
 fun main(args: Array<String>) {
     println(ifInAction())
@@ -24,4 +25,14 @@ fun main(args: Array<String>) {
 
     simpleFor()
     indexArray()
+
+    println("--- for labels ---")
+
+    labelForBreakContinue()
+    nonLocalReturn()
+    returnFromLambda()
+    returnFromLambdaWithImplicitLabel()
+    returnWithAnonymousFunction()
+    breakSimulator()
+
 }
