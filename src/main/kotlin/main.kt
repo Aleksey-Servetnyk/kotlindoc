@@ -1,38 +1,23 @@
-import controlInstructions.*
-import jampOperators.*
+import classes.*
 
 fun main(args: Array<String>) {
-    println(ifInAction())
-    println(ifElse())
-    println(ifExp())
-    println(ifMultiRows())
+    InitOrderDemo("Hello!")
+    Constructors(1)
+    //val dontCreate = DontCreateMe()
 
-    simpleWhen(1)
-    simpleWhen(2)
-    simpleWhen(5)
+    /*
+        Для создания экземпляра класса конструктор вызывается так, как если бы он был обычной функцией:
+    */
+    val invoice = Invoice()
+    val customer = Customer("Joe Smith")
 
-    commaWhen(1)
-    commaWhen(5)
+    println("Построение класса Derived1(\"hello\", \"world\")")
+    val d = Derived1("hello", "world")
 
-    exprWhen(55)
+    FilledRectangle().draw()
+    println(FilledRectangle().fillColor)
 
-    collectionWhen(120)
+    FilledRectangleWithInner().Filler().drawAndFill()
 
-    println(typeWhen("prefix1"))
-    println(typeWhen("x_known"))
-
-    println("--- for instruction ---")
-
-    simpleFor()
-    indexArray()
-
-    println("--- for labels ---")
-
-    labelForBreakContinue()
-    nonLocalReturn()
-    returnFromLambda()
-    returnFromLambdaWithImplicitLabel()
-    returnWithAnonymousFunction()
-    breakSimulator()
-
+    Square().draw()
 }
