@@ -1,20 +1,17 @@
-import dataClasses.Person
-import dataClasses.User
+import sealedClasses.Const
+import sealedClasses.NotANumber
+import sealedClasses.Sum
+import sealedClasses.eval
 
 fun main(args: Array<String>) {
-    val person1 = Person("John")
-    val person2 = Person("John")
-    person1.age = 10
-    person2.age = 20
-    println("${person1 == person2}")
+    val c = Const(6.0)
+    println(c.number)
+    val s = Sum(c, c)
+    println(s.toString())
+    println(s)
 
-    val jack = User(name = "Jack", age = 1)
-    val olderJack = jack.copy(age = 2)
-    println(jack.toString())
-    println(olderJack.toString())
-
-    val jane = User("Jane", 35)
-    val (name, age) = jane
-    println("$name, $age years of age")
+    println(eval(s))
+    println(eval(c))
+    println(eval(NotANumber))
 }
 
