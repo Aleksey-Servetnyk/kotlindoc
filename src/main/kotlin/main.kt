@@ -1,39 +1,20 @@
-import extensions.*
+import dataClasses.Person
+import dataClasses.User
 
 fun main(args: Array<String>) {
-    val l = mutableListOf(1, 2, 3)
-    println("${l[0]} ${l[2]}")
-    l.swap(0, 2)
-    println("${l[0]} ${l[2]}")
+    val person1 = Person("John")
+    val person2 = Person("John")
+    person1.age = 10
+    person2.age = 20
+    println("${person1 == person2}")
 
-    println("${l[0]} ${l[2]}")
-    l.swapGeneric(0, 2)
-    println("${l[0]} ${l[2]}")
+    val jack = User(name = "Jack", age = 1)
+    val olderJack = jack.copy(age = 2)
+    println(jack.toString())
+    println(olderJack.toString())
 
-    val s = mutableListOf("One", "Two", "Three")
-    println("${s[0]} ${s[2]}")
-    s.swapGeneric(0, 2)
-    println("${s[0]} ${s[2]}")
-
-    printFoo(D())
-
-    val e = E()
-    e.foo()
-    e.foo(1)
-
-    var a = Any()
-    a = "test"
-    println(a.toString())
-
-    val listString = listOf("One", "Two", "Three")
-    println(listString.lastIndex)
-
-    val c = C1()
-    val d = D1()
-    c.caller(d)
-
-    C2().caller(E1())
-    C3().caller(E1())
-    C2().caller(E2())
+    val jane = User("Jane", 35)
+    val (name, age) = jane
+    println("$name, $age years of age")
 }
 
