@@ -1,17 +1,17 @@
-import sealedClasses.Const
-import sealedClasses.NotANumber
-import sealedClasses.Sum
-import sealedClasses.eval
+import generics.*
 
 fun main(args: Array<String>) {
-    val c = Const(6.0)
-    println(c.number)
-    val s = Sum(c, c)
-    println(s.toString())
-    println(s)
+    val box: Box<Int> = Box<Int>(1)
+    val box1 = Box(2).also {
+        println(box.value)
+        println(it.value)
+    }
 
-    println(eval(s))
-    println(eval(c))
-    println(eval(NotANumber))
+    println(box.value)
+    println(box1.value)
+
+    println(nextT())
+
+
 }
 
