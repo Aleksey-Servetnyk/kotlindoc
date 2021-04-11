@@ -2,6 +2,9 @@ import enumerations.IntArithmetics
 import enumerations.RGB
 import enumerations.printAllValues
 import nestedClasses.Outer
+import objects.adHoc
+
+
 
 fun main(args: Array<String>) {
     println(Outer.Nested().foo())
@@ -15,5 +18,7 @@ fun main(args: Array<String>) {
     }
 
     printAllValues<RGB>()
+
+    print(adHoc.x + adHoc.y)
 }
 
