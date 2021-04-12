@@ -1,39 +1,17 @@
-import delegatedProperties.Example
-import delegatedProperties.User
-import delegatedProperties.UserMap
-import delegatedProperties.UserMutable
+import functions.asList
+import functions.double
+import functions.printHello
 
 fun main(args: Array<String>) {
-    val e = Example()
-    println(e.p)
+    println(double(2))
+    println(1 shl 3)
 
-    e.p = "NEW"
+    printHello("Alex")
+    printHello(null)
 
-    val lazyValue: String by lazy {
-        println("computed!")
-        "Hello!"
-    }
-    println(lazyValue)
-    println(lazyValue)
+    println(asList(1, 2, 3))
 
-    val user = User()
-    user.name = "first"
-    user.name = "second"
-    user.name = "three"
-
-    val userMap = UserMap(mapOf(
-        "name"  to "John Doe",
-        "age"   to 25
-    ))
-    println(userMap.name)
-    println(userMap.age)
-
-    val userMutable = UserMutable(mutableMapOf(
-        "name"  to "Catalina",
-        "age"   to 30
-    ))
-    userMutable.age = 50
-    println(userMutable.name)
-    println(userMutable.age)
+    val a = arrayOf(1, 2, 3)
+    println(asList(-1, 0, *a, 4))
 }
 
