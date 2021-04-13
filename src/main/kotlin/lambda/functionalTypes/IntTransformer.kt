@@ -6,3 +6,4 @@ class IntTransformer : (Int) -> Int {
 
 val intFunction: (Int) -> Int = IntTransformer()
 val a = { i: Int -> i + 1 }
+
