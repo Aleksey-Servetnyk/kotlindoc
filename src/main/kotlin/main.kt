@@ -1,21 +1,12 @@
-import nullSafety.baz
-import nullSafety.letNull
+import annotations.Ann
+import annotations.Foo
+import annotations.Foo3
 
 fun main(args: Array<String>) {
-    var a: String = "abc"
-    //a = null
+    val foo = Foo()
+    println(foo.baz(5))
+    val foo3 = Foo3()
+    println(foo3)
 
-    var b: String? = "abc"
-    //b = null
-    val l = b?.length
 
-    val l1 = if (b != null && b.isNotEmpty()) {
-        println("String of length ${b.length}")
-    } else {
-        println("Empty string")
-    }
-
-    letNull()
-
-    baz()
 }
