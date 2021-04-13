@@ -1,20 +1,17 @@
-import multiDeclarations.Person
-import multiDeclarations.forDestruct
-import multiDeclarations.returnPerson
+import collections.Controller
+import collections.lists
 
 fun main(args: Array<String>) {
-    val person = Person("John", 30)
-    val (name, age) = person
-    println("$name $age")
+    lists()
 
-    forDestruct()
+    val items = Controller(mutableListOf("One", "Two", "Three"))
+    println(items.items)
 
-    val (name1, age1) = returnPerson()
-    println("$name1 $age1")
-
-    val map1 = mapOf(1 to "1", 2 to "2")
-    for ((key, value) in map1) {
-        println("$key $value")
-    }
-
+    val numberItems = mutableListOf(1, 2, 3)
+    println(numberItems.first())
+    println(numberItems.last())
+    println(numberItems.filter { it % 2 == 0 })
+    if (numberItems.none {
+            it > 6
+        }) println("Do`t more six elements")
 }
