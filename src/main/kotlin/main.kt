@@ -1,12 +1,21 @@
-import operatorOverloading.Counter
-import operatorOverloading.Point
-import operatorOverloading.unaryMinus
+import nullSafety.baz
+import nullSafety.letNull
 
 fun main(args: Array<String>) {
-    val point = Point(10, 20)
-    println(-point)
+    var a: String = "abc"
+    //a = null
 
-    val counter = Counter(7)
-    println(counter.plus(3))
-    println(counter.dayIndex)
+    var b: String? = "abc"
+    //b = null
+    val l = b?.length
+
+    val l1 = if (b != null && b.isNotEmpty()) {
+        println("String of length ${b.length}")
+    } else {
+        println("Empty string")
+    }
+
+    letNull()
+
+    baz()
 }
