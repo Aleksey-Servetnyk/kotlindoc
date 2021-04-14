@@ -1,57 +1,53 @@
-import reflection.*
-//import kotlin.reflect.jvm.*
+import scopeFunctions.*
 
 fun main(args: Array<String>) {
-    val c = MyClass::class
-    println(c)
+    Person("Alice", 29, "Amsterdam").let {
+        println(it)
+        it.moveTo("London")
+        it.incrementAge()
+        println(it)
+    }
+    val alice = Person("Catrin", 25, "Barselona")
+    println(alice)
+    alice.moveTo("Madrid")
+    alice.incrementAge()
+    println(alice)
 
-    val numbers = listOf(1, 2, 3)
-    println(numbers.filter(::isOdd) )
+    val str = "Hello"
+    str.run { println("$length") }
+    str.let { println("${it.length}") }
 
-    val predicate: (String) -> Boolean = ::isOdd
-    println(predicate)
+    val adam = Person("Adam").apply {
+        age = 20
+        city = "London"
+    }
+    println(adam)
 
-    val oddLength = compose(::isOdd, ::length)
-    val strings = listOf("a", "ab", "abc")
-    println(strings.filter(oddLength))
+    val i = getRandomInt()
+    val i1 = getRandomInt1()
 
-    println(::x.get())
-    ::x.set(3)
-    println(x)
+    sideSteps()
+    lambdaResult()
+    firstLast()
 
-    val strs = listOf("a", "ab", "abc")
-    println(strs.map(String::length))
+    letFunction()
+    letFunction1()
+    letNonNull()
+    letLocalScope()
 
-    val prop = A::p
-    println(prop.get(A(1)))
+    withBasic()
 
-    println(String::lastChar.get("abc").toUpperCase())
+    runFull()
+    runWithoutExtension()
 
-/*
-    println(JA::p.javaGetter)
-    println(JA::p.javaField)
-*/
+    applyBasic()
 
-    val classKotlin = getKClass(String())
-    println(classKotlin)
+    alsoBasic()
 
-    val foo = function(::Foo)
-    println(foo)
-
-    println(regex1())
-
-    val numberRegex = "\\d+".toRegex()
-    val isNumber = numberRegex::matches
-    println(isNumber("29"))
-
-    val strings1 = listOf("abc", "1234", "a70")
-    println(strings1.filter(numberRegex::matches))
-
-    val isNumber1: (CharSequence) -> Boolean = numberRegex::matches
-    println(isNumber1)
-    val matches: (Regex, CharSequence) -> Boolean = Regex::matches
-    println(matches)
-
-    val prop1 = "abc"::length
-    println(prop1.get())
+    takeBasic()
+    takeNullable()
+    displaySubstringPosition("as;dlkf;mtfgdfkffkmv", "dfk")
+    displaySubstringPosition("010000011", "12")
+    displaySubstringPositionNotTake("as;dlkf;mtfgdfkffkmv", "dfk")
+    displaySubstringPositionNotTake("010000011", "12")
 }
